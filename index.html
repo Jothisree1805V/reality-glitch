@@ -187,6 +187,72 @@ button:hover {
 
 /* ===== END CINEMATIC UPGRADE ===== */
 
+/* ===== 3D MYSTERY ROOM UPGRADE ===== */
+
+.scene {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  background:
+    radial-gradient(ellipse at 50% 35%, rgba(113, 78, 190, .32), transparent 42%),
+    radial-gradient(ellipse at 85% 70%, rgba(30, 120, 160, .12), transparent 35%),
+    linear-gradient(180deg, #17152c 0%, #101326 48%, #080b17 100%) !important;
+  box-shadow:
+    inset 0 0 100px rgba(0, 0, 0, .85),
+    0 0 35px rgba(132, 91, 255, .22);
+}
+
+/* Atmospheric light */
+.scene::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background:
+    radial-gradient(ellipse at 52% 20%, rgba(157, 124, 255, .18), transparent 38%),
+    linear-gradient(90deg, rgba(0, 0, 0, .3), transparent 25%, transparent 75%, rgba(0, 0, 0, .3));
+  animation: roomAtmosphere 7s ease-in-out infinite alternate;
+}
+
+/* Interactive objects */
+.scene [data-object] {
+  cursor: pointer;
+  transition: transform .35s ease, filter .35s ease;
+  filter: drop-shadow(0 5px 12px rgba(0, 0, 0, .5));
+}
+
+.scene [data-object]:hover {
+  transform: translateY(-5px) scale(1.04);
+  filter: drop-shadow(0 0 16px rgba(167, 139, 255, .8));
+}
+
+/* Mystery room lighting */
+.moon,
+.window,
+.door {
+  transition: filter .4s ease;
+}
+
+.window {
+  filter: drop-shadow(0 0 18px rgba(133, 117, 255, .5));
+}
+
+.door {
+  box-shadow: inset 0 0 25px rgba(174, 126, 255, .12);
+}
+
+/* Subtle cinematic atmosphere */
+@keyframes roomAtmosphere {
+  from {
+    opacity: .55;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ===== END 3D ROOM UPGRADE ===== */
+
 </style></head><body>
 <div class="wrap"><header class="top"><div><div class="brand">REALITY <span>GLITCH</span></div><div class="tag">THE SILENT ROOM · CHAPTER 01</div></div><div class="hud"><div class="pill">TIME <strong id="time">08:00</strong></div><div class="pill">CLUES <strong id="cluesCount">0/4</strong></div><div class="pill">SCORE <strong id="score">0</strong></div></div></header>
 <main><div id="scene" class="scene"><div class="moon"></div><div class="window"></div><div class="door" id="door" title="Locked exit"></div><div class="rug"></div><button class="object clock" data-object="clock" aria-label="Inspect clock">◷<small>CLOCK</small></button><button class="object painting" data-object="painting" aria-label="Inspect painting">◈<small>PAINTING</small></button><button class="object drawer" data-object="drawer" aria-label="Inspect drawer">▤<small>DRAWER</small></button><button class="object mirror" data-object="mirror" aria-label="Inspect mirror">◉<small>MIRROR</small></button><button class="object plant" data-object="plant" aria-label="Inspect plant">♣<small>PLANT</small></button><div id="flash" class="clueflash"></div></div>
