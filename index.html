@@ -253,6 +253,159 @@ button:hover {
 
 /* ===== END 3D ROOM UPGRADE ===== */
 
+/* ===== SILENT ROOM: ENVIRONMENT REDESIGN ===== */
+
+/* Deep atmospheric walls */
+.scene {
+  background:
+    radial-gradient(ellipse at 48% 30%, #55416e55, transparent 42%),
+    linear-gradient(90deg, #100f20, #252039 48%, #111020) !important;
+  border-color: #66517e;
+  box-shadow:
+    inset 0 0 90px #000,
+    0 0 35px #8661ff35;
+}
+
+/* Wall panel details */
+.scene::before {
+  background:
+    linear-gradient(90deg, transparent 8%, #ffffff0a 8.2%, transparent 8.5%),
+    linear-gradient(90deg, transparent 92%, #ffffff0a 92.2%, transparent 92.5%),
+    radial-gradient(ellipse at 50% 25%, #a68aff20, transparent 60%),
+    linear-gradient(180deg, #ffffff08, transparent 55%, #0008);
+}
+
+/* Moonlit window */
+.window {
+  background:
+    linear-gradient(145deg, #6479a955, #17233d 55%, #090d20) !important;
+  border: 6px solid #716184;
+  box-shadow:
+    inset 0 0 25px #a9c7ff55,
+    0 0 35px #8baaff55;
+}
+
+.window::before,
+.window::after {
+  background: #89789d;
+  box-shadow: 0 0 8px #b5a0d5;
+}
+
+/* Wooden exit door */
+.door {
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 13px,
+      #ffffff08 14px,
+      transparent 16px
+    ),
+    linear-gradient(90deg, #17101f, #49304b 45%, #21172b) !important;
+  border: 6px solid #786184;
+  border-bottom: 0;
+  box-shadow:
+    inset 0 0 35px #000b,
+    inset 0 0 8px #c19bff55,
+    0 0 24px #8c67ff35;
+}
+
+.door::after {
+  width: 11px;
+  height: 11px;
+  background: #c5a0ff;
+  box-shadow: 0 0 18px #c5a0ff;
+}
+
+/* Perspective floor */
+.floor {
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 48px,
+      #ffffff08 49px,
+      transparent 51px
+    ),
+    linear-gradient(165deg, #493552, #21182c 48%, #090810 90%);
+  border-top: 2px solid #8c719d;
+  box-shadow: 0 -12px 35px #9b6bc522;
+}
+
+/* Old mysterious carpet */
+.rug {
+  background:
+    linear-gradient(90deg, #24162f, #704c78, #24162f);
+  border: 1px solid #a17ba955;
+  filter: drop-shadow(0 8px 12px #0009);
+}
+
+/* Interactive objects */
+.object {
+  background: linear-gradient(145deg, #51405d, #211b30 75%) !important;
+  border: 2px solid #9580a9;
+  box-shadow:
+    inset 0 0 15px #ffffff12,
+    0 9px 18px #0009;
+  text-shadow: 0 2px 5px #000;
+}
+
+.object:hover {
+  border-color: #a9faff;
+  box-shadow: 0 0 25px #7cf7ff88;
+}
+
+/* Clock */
+.clock {
+  background: radial-gradient(circle, #41415e, #151527) !important;
+  border: 5px solid #a08eae;
+  box-shadow: 0 0 22px #9b83ff55;
+}
+
+/* Painting */
+.painting {
+  background:
+    linear-gradient(145deg, #795a83, #30213e) !important;
+  border: 7px solid #a28aab;
+  box-shadow:
+    inset 0 0 0 4px #302139,
+    0 10px 22px #0009;
+}
+
+/* Drawer */
+.drawer {
+  background: linear-gradient(180deg, #604565, #2a1e36) !important;
+  border: 2px solid #9b7da8;
+  border-bottom: 8px solid #76567e;
+}
+
+/* Haunted mirror */
+.mirror {
+  background:
+    linear-gradient(135deg, #b5d8e755, #283b55 45%, #a17bc555) !important;
+  border: 5px solid #b0a0bd;
+  box-shadow:
+    inset 0 0 20px #c8e9ff55,
+    0 0 22px #9e8aff55;
+}
+
+/* Plant */
+.plant {
+  color: #b8ffe0;
+  text-shadow: 0 0 18px #80ffbd88;
+}
+
+/* Mobile adjustments */
+@media (max-width: 650px) {
+  .scene {
+    border-radius: 22px;
+  }
+
+  .object {
+    text-shadow: 0 2px 5px #000;
+  }
+}
+
+/* ===== END ENVIRONMENT REDESIGN ===== */
+
 </style></head><body>
 <div class="wrap"><header class="top"><div><div class="brand">REALITY <span>GLITCH</span></div><div class="tag">THE SILENT ROOM · CHAPTER 01</div></div><div class="hud"><div class="pill">TIME <strong id="time">08:00</strong></div><div class="pill">CLUES <strong id="cluesCount">0/4</strong></div><div class="pill">SCORE <strong id="score">0</strong></div></div></header>
 <main><div id="scene" class="scene"><div class="moon"></div><div class="window"></div><div class="door" id="door" title="Locked exit"></div><div class="rug"></div><button class="object clock" data-object="clock" aria-label="Inspect clock">◷<small>CLOCK</small></button><button class="object painting" data-object="painting" aria-label="Inspect painting">◈<small>PAINTING</small></button><button class="object drawer" data-object="drawer" aria-label="Inspect drawer">▤<small>DRAWER</small></button><button class="object mirror" data-object="mirror" aria-label="Inspect mirror">◉<small>MIRROR</small></button><button class="object plant" data-object="plant" aria-label="Inspect plant">♣<small>PLANT</small></button><div id="flash" class="clueflash"></div></div>
